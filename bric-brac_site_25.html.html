@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bric-Brac — gloriously repeating</title>
+  <meta name="description" content="A ultra-minimal portfolio template for an architecture / design studio." />
+  <link href="https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #6b6b6b;
+      --maxw: 1100px;
+      --gutter: 20px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.35 'Funnel Sans', sans-serif}
+    a{color:inherit;text-decoration:none}
+    a:focus{outline:2px dotted var(--fg);outline-offset:3px}
+
+    /* Header */
+    header{max-width:var(--maxw);margin:36px auto 24px;padding:0 var(--gutter);display:flex;align-items:flex-start;justify-content:space-between}
+    .brand{font-family:'Coral Pixels', cursive;font-size:33px;letter-spacing:0.2px;cursor:pointer;transition:opacity .3s ease}
+    nav{display:flex;gap:16px;flex-wrap:wrap}
+    nav a{font-size:16px;opacity:0.85;font-family:'Funnel Sans', sans-serif}
+    nav a:hover{opacity:1}
+
+    /* Tagline */
+    .tagline-row{max-width:var(--maxw);margin:0 auto 28px;padding:0 var(--gutter);color:var(--muted);font-size:16px;font-family:'Funnel Sans', sans-serif}
+    .tagline-content{display:flex;align-items:center;width:100%}
+    .tagline-fill{flex:1;height:1px;background:var(--muted);margin:4px 0 0 0}
+    .tagline-word{white-space:nowrap;padding:4px 16px;cursor:pointer;transition:opacity .3s ease;display:flex;align-items:center;font-family:'Funnel Sans', sans-serif}
+    .tagline-space{color:#fcba03}
+    .tagline-object{color:#ad0303; margin-left:6px; margin-right:6px;}
+    .tagline-experiment{color:#0377fc}
+
+    /* Project card row */
+    .projects{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter) 60px;font-family:'Funnel Sans', sans-serif}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .project{display:block;border:2px dashed #e9e9e9;background:#fff;transition:opacity .3s ease, transform .06s ease;font-family:'Funnel Sans', sans-serif}
+    .project:active{transform:scale(0.995)}
+    .thumb{aspect-ratio:1/1;width:100%;height:auto;display:block;object-fit:cover;background:#f3f3f3}
+    .meta{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 12px 14px;border-top:2px dashed #e9e9e9}
+    .circle{width:16px;height:16px;border-radius:50%;display:inline-block;background:transparent;border:2px solid currentColor;position:relative;top:2px}
+    .circle.experiment{color:#0377fc}
+    .circle.object{color:#ad0303}
+    .circle.space{color:#fcba03}
+
+    /* Shared visibility states */
+    .hidden {opacity:0; pointer-events:none;}
+    .fade{opacity:0; transition:opacity .35s ease}
+    .fade.show{opacity:1; transition:opacity .35s ease}
+
+    /* Gallery / info card */
+    .info-card{display:block;border:2px dashed #e9e9e9;background:#fff;padding:16px;min-height:100%;font-family:'Funnel Sans', sans-serif}
+    .info-card h4{margin:0 0 8px;font-size:16px;display:flex;justify-content:space-between;align-items:center;font-family:'Funnel Sans', sans-serif}
+    .info-card h4 .year{font-weight:normal;color:var(--fg);font-size:16px}
+    .info-card p{margin:0 0 6px;color:var(--muted);font-family:'Funnel Sans', sans-serif}
+    .info-card em,.info-card .credits{font-size:14px;color:var(--muted);display:block;margin-top:4px;font-style:normal;font-family:'Funnel Sans', sans-serif}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand" id="brand">Bric-Brac</div>
+    <nav>
+      <a href="#info">info</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <div class="tagline-row">
+    <div class="tagline-content">
+      <span class="tagline-word tagline-space" data-filter="space">Space</span>
+      <div class="tagline-fill"></div>
+      <span class="tagline-word tagline-object" data-filter="object">Object</span>
+      <div class="tagline-fill"></div>
+      <span class="tagline-word tagline-experiment" data-filter="experiment">Experiment</span>
+    </div>
+  </div>
+
+  <main id="projects" class="projects">
+    <div class="grid" id="project-grid">
+      <a class="project" href="#p-085" data-category="experiment" data-project="p-085">
+        <img class="thumb" src="images/DSCF9644.jpg" alt="Project 085 thumbnail" loading="lazy" />
+        <div class="meta"><span class="circle experiment"></span><span class="title">mangled material</span></div>
+      </a>
+
+      <a class="project" href="#p-079" data-category="object" data-project="p-079">
+        <img class="thumb" src="images/IMG_4374.JPG" alt="Project 079 thumbnail" loading="lazy" />
+        <div class="meta"><span class="circle object"></span><span class="title">1ke4.1</span></div>
+      </a>
+
+      <a class="project" href="#p-094" data-category="space" data-project="p-094">
+        <img class="thumb" src="images/DSCF9408.jpg" alt="Project 094 thumbnail" loading="lazy" />
+        <div class="meta"><span class="circle space"></span><span class="title">sauna.1</span></div>
+      </a>
+    </div>
+  </main>
+
+  <section id="info" style="max-width:1100px;margin:40px auto;padding:0 20px 60px;color:#6b6b6b">
+    <h2 style="font-size:18px;margin:0 0 8px">info</h2>
+    <p>Architecture + Research + Bricolage</p>
+
+    <h3 style="font-size:16px;margin:22px 0 6px" id="contact">contact</h3>
+    <p>
+      <a href="mailto:sven.samyn@gmail.com">sven.samyn@gmail.com</a> ·
+      <a href="https://instagram.com" target="_blank" rel="noopener">instagram</a> ·
+      Tallinn, Estonia
+    </p>
+  </section>
+
+  <script>
+    // --- Setup & state
+    const grid = document.getElementById('project-grid');
+    const originalGridHTML = grid.innerHTML;
+    let isExpanded = false; // track gallery state
+
+    // Project galleries
+    const PROJECTS = {
+      'p-085': {
+        title: 'mangled material',
+        category: 'experiment',
+        images: [
+          'images/DSCF9644.jpg',
+          'images/DSCF9657.jpg',
+          'images/Faili%20Scan_20211007%20(2).png%20koopia.png',
+          'images/Faili%20Scan_20211007%20(4).png%20koopia.png',
+          'images/Faili%20Scan_20211007.png%20koopia.png'
+        ],
+        description: 'Testing the limits of plywood, playing with tension and gravity.',
+        credits: '*Uni project; Tutor: Pavle Stamenović; Photos: Irma Holm',
+        year: '2021'
+      },
+      'p-079': {
+        title: '1ke4.1',
+        category: 'object',
+        images: [
+          'images/IMG_4374.JPG'
+        ],
+        description: 'The series 1ke4 aims to enhance discarded standardised objects/furniture by implementing other random elements or mesured additions.',
+        year: '2024'
+      },
+      'p-094': {
+        title: 'sauna.1',
+        category: 'space',
+        images: [
+          'images/DSCF9408.jpg',
+          'images/DSCF9433.jpg',
+          'images/Kosk%20saun%20plaan%20final.png',
+          'images/Screen%20Shot%202025-06-15%20at%2015.24.57.png',
+          'images/DJI_0734.jpg',
+          'images/_N5A6330.jpg',
+          'images/_N5A6143.jpg'
+        ],
+        description: 'Officialy named Klooga KOSK, this sauna is a communal project that seeks to connect the visitors with the surrounding waterscape. The roofs geometry directs rainwater towards the center of the complex which creates a natural shower for the visitors.',
+        credits: '*Uni project; Co-authors: Liis Sulger, Ward Ostyn; Tutors: Malle Jürgenson, Liina-Liis Pihu, Ülar Mark; Photos: Martin Siplane; Model photos: Irma Holm',
+        year: '2022'
+      }
+    };
+
+    function smoothReplace(newHTML, cb){
+      const current = Array.from(grid.children);
+      if(current.length){
+        current.forEach(el => { el.classList.add('fade','show'); });
+        requestAnimationFrame(() => current.forEach(el => el.classList.remove('show')));
+        setTimeout(() => {
+          grid.innerHTML = newHTML;
+          const fresh = grid.querySelectorAll('.project, .info-card');
+          fresh.forEach(el => el.classList.add('fade'));
+          requestAnimationFrame(() => fresh.forEach(el => el.classList.add('show')));
+          if (typeof cb === 'function') cb();
+        }, 360);
+      } else {
+        grid.innerHTML = newHTML;
+        const fresh = grid.querySelectorAll('.project, .info-card');
+        fresh.forEach(el => el.classList.add('fade'));
+        requestAnimationFrame(() => fresh.forEach(el => el.classList.add('show')));
+        if (typeof cb === 'function') cb();
+      }
+    }
+
+    function getFilteredHTML(category){
+      const temp = document.createElement('div');
+      temp.innerHTML = originalGridHTML;
+      const cards = Array.from(temp.querySelectorAll('.project'))
+        .filter(p => p.dataset.category === category)
+        .map(p => p.outerHTML)
+        .join('');
+      return cards || originalGridHTML;
+    }
+
+    function filterToCategory(category){
+      const html = getFilteredHTML(category);
+      smoothReplace(html, () => {
+        isExpanded = false;
+      });
+    }
+
+    document.querySelectorAll('.tagline-word').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        if (isExpanded) {
+          restoreOriginalGrid(() => filterToCategory(filter));
+        } else {
+          filterToCategory(filter);
+        }
+      });
+    });
+
+    document.getElementById('brand').addEventListener('click', () => {
+      restoreOriginalGrid();
+    });
+
+    function restoreOriginalGrid(after){
+      smoothReplace(originalGridHTML, () => {
+        isExpanded = false;
+        if (after) after();
+      });
+    }
+
+    function expandProject(projectKey){
+      const data = PROJECTS[projectKey];
+      if(!data){ return; }
+      const colorClass = data.category;
+
+      let html = '';
+      data.images.forEach((src, idx) => {
+        const meta = idx === 0
+          ? `<div class="meta"><span class="circle ${colorClass}"></span><span class="title">${data.title}</span></div>`
+          : `<div class="meta"><span class="circle ${colorClass}"></span></div>`;
+        html += `
+<a class="project" href="#${projectKey}" data-category="${data.category}">
+  <img class="thumb" src="${src}" alt="${data.title}" loading="lazy" />
+  ${meta}
+</a>`;
+      });
+      html += `
+<div class="info-card">
+  <h4>${data.title}<span class="year">${data.year}</span></h4>
+  <p>${data.description}</p>
+  ${data.credits ? `<div class="credits">${data.credits}</div>` : ''}
+</div>`;
+
+      smoothReplace(html, () => { isExpanded = true; });
+    }
+
+    grid.addEventListener('click', (e) => {
+      const card = e.target.closest('.project[data-project]');
+      if (!card) return;
+      e.preventDefault();
+      const key = card.dataset.project;
+      expandProject(key);
+    });
+
+    (function selfTest(){
+      try{
+        console.assert(document.querySelectorAll('.tagline-word').length === 3, 'Expected 3 subject buttons');
+        console.assert(document.querySelectorAll('.project[data-project]').length === 3, 'Expected 3 header cards');
+        console.assert(typeof filterToCategory === 'function', 'filterToCategory should exist');
+        console.assert(typeof expandProject === 'function', 'expandProject should exist');
+        console.log('[self-test] OK');
+      }catch(e){
+        console.error('[self-test] failed', e);
+      }
+    })();
+  </script>
+</body>
+</html>
